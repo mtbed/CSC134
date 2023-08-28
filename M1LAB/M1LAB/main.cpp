@@ -26,18 +26,18 @@ int main()
 
   // ASK FOR USER AMOUNT
 
-  while (amt_bought < 1){
+  while (amt_bought < 1 || amt_bought > apples_stocked){
   cout << "\nHow many apples do you want?" << endl;
   cin >> amt_bought;
 
 
   if (amt_bought > apples_stocked){
-    cout << "YOU BOUGHT MORE THAN WE GOT" << endl;
+    cout << "That's more than we have! We only have "<< apples_stocked << " apples." << endl;
   }
-  if (amt_bought < 0){
-    cout << "YOU CANNOT BUY LESS THAN 1" << endl;
+  if (amt_bought <= 0){
+    cout << "You cannot buy less than 1 apple" << endl;
   }
-  else{
+  else if(amt_bought >= 1 && amt_bought <= apples_stocked){
     payment = apples_price * amt_bought;
     cout << "\nYou bought \n" << amt_bought << " apples\nat " << apples_price << " per apple." << "\n\nYour total is: $" << payment << endl;
   }
