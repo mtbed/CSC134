@@ -17,6 +17,13 @@ int main() {
   getline (cin, customer_name);
   cout << "Welcome, " << customer_name << "\n" << endl;
 
+
+  cout << "Enter amount of apples stocked: " << endl;
+  cin >> apples_stocked;
+
+  cout << "Enter price of apples: " << endl;
+  cin >> apples_price;
+
   cout << "We have " << apples_stocked << " apples in stock" << endl;
 
   cout << "Apples are currently $" << apples_price << " each." << endl;
