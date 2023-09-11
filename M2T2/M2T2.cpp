@@ -6,7 +6,7 @@ int main() {
   string orchard_name = "Matt";
   int apples_stocked = 100;
   float apples_price = 0.25;
-  int amt_bought = 0;
+  int amt_bought = -1;
   float payment;
   string customer_name;
 
@@ -30,7 +30,7 @@ int main() {
 
   // ASK FOR USER AMOUNT
 
-  while (amt_bought < 1 || amt_bought > apples_stocked){
+  while (amt_bought < 0 || amt_bought > apples_stocked){
   cout << "\nHow many apples do you want?" << endl;
   cin >> amt_bought;
 
