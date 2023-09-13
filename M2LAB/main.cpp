@@ -9,8 +9,8 @@ double width;
 double height;
 double volume;
 
-const double COST_PER_CUBIC_FOOT = 0.23;
-const double PRICE_PER_CUBIC_FOOT = 0.5;
+const double COST_PER_CUBIC_FOOT = 0.3;
+const double PRICE_PER_CUBIC_FOOT = 0.52;
 
 double cost;
 double price;
