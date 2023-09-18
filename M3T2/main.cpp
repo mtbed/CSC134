@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 /*
 (At the beginning, we can ask the user to tell us what the dice rolls are, and then we'll use rnd(). )
@@ -28,7 +30,7 @@ int die1, die2, total;
 
 
 int roll(){
-    int roll = rand() % 6;
+    int roll = rand() % 6 + 1;
     return roll;
 }
 
@@ -42,9 +44,8 @@ int main()
     //cout << "What are the 2 rolls?" << endl;
     //cin >> die1 >> die2;
 
-    int seed;
-    cout << "Enter your lucky number: ";
-    cin >> seed;
+    int seed = time(0);
+
     srand(seed);
 
     die1 = roll();
