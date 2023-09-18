@@ -24,12 +24,36 @@ using namespace std;
 
 int die1, die2, total;
 
+
+
+
+int roll(){
+    int roll = rand() % 6;
+    return roll;
+}
+
+
+
+
+
+
 int main()
 {
-    cout << "What are the 2 rolls?" << endl;
-    cin >> die1 >> die2;
+    //cout << "What are the 2 rolls?" << endl;
+    //cin >> die1 >> die2;
+
+    int seed;
+    cout << "Enter your lucky number: ";
+    cin >> seed;
+    srand(seed);
+
+    die1 = roll();
+    die2 = roll();
     total = die1 + die2;
-    cout << "You rolled: " << total << endl;
+
+    cout << "Die 1: " << die1 << endl;
+    cout << "Die 2: " << die2 << endl;
+    cout << "\nYou rolled: " << total << endl;
 
 
 
@@ -39,8 +63,12 @@ int main()
         cout << "You Win!!";
     }
 
-    if (total == 2 || total == 3 || total == 12){
+    else if (total == 2 || total == 3 || total == 12){
         cout << "LOSER!!!";
+    }
+
+    else {
+        cout << "Roll again.";
     }
     return 0;
 }
