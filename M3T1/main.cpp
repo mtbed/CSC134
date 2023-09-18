@@ -56,5 +56,20 @@ int main()
 
     cout << "RECTANGLE #2:\n" << "Length: " << length2 << "\nWidth: " << width2 << "\nArea: " << area2;
 
+    cout << "\n\n";
+
+
+    if (area1 > area2){
+        cout << "Rectangle #1 has the larger area.";
+    }
+
+    if (area2 > area1){
+        cout << "Rectangle #2 has the larger area.";
+    }
+
+    if (area1 == area2){
+        cout << "Both Rectangles have the same area!";
+    }
+
     return 0;
 }
