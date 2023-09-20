@@ -89,10 +89,28 @@ else if (pokeroll == 4){
             cout << "You caught a " << pokemon << "!!\n\n";
         }
   	}
-  	if (pokemon == "Charizard"){
+  	else if (pokemon == "charizard"){
         chance = roll();
         if (chance >= 3){
             cout << "You caught a " << pokemon << "!!\n\n";
+        }
+        else{
+            cout << "Oh no! They got away!\n\n";
+        }
+  	}
+  	else if (pokemon == "mewtwo"){
+        chance = roll();
+        if (chance == 4){
+            chance = roll();
+            if (chance == 4){
+                cout << "No way! You caught a " << pokemon << "!!\n\n";
+            }
+            else{
+                cout << "Agh! Almost had it!!";
+            }
+        }
+        else{
+            cout << "Oh no! They got away!\n\n";
         }
   	}
 
