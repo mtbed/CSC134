@@ -55,7 +55,7 @@ else if (pokeroll == 4){
 
 
 
-  while in_battle{
+  while (in_battle == true){
   cout << "It's a " << pokemon << "!\n\n";
 
   cout << "OPTIONS:\n1. Attack     2.Catch     3.Run\n\n";
@@ -185,15 +185,20 @@ else if (pokeroll == 4){
     }
 
   }
-}
 
 
 
 
 
 
-  else if (choice < 1 || choice > 4){
+   else if (choice < 1 || choice > 3){
   	cout << "I'm sorry, that is not a valid choice." << endl;
+  }
+
+
+
+
+
   }
 
   // finish up
