@@ -15,7 +15,7 @@ using namespace std;
 
 int roll(){
     int roll = rand() % 4 + 1;
-    cout << "roll = " << roll << endl;
+    //cout << "roll = " << roll << endl;
     return roll;
 }
 
