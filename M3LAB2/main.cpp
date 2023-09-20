@@ -33,15 +33,16 @@ int main() {
   int choice;
   int pokeroll = roll();
   string pokemon;
+  int chance;
 
 if (pokeroll == 1){
-    pokemon = "pikachu";
+    pokemon = "bidoof";
   }
 else if (pokeroll == 2){
         pokemon = "squirtle";
     }
 else if (pokeroll == 3){
-        pokemon = "ditto";
+        pokemon = "charizard";
     }
 else if (pokeroll == 4){
         pokemon = "mewtwo";
@@ -52,24 +53,59 @@ else if (pokeroll == 4){
   cout << "It's a " << pokemon << "!\n\n";
 
   cout << "OPTIONS:\n1. Attack     2.Catch     3.Run\n\n";
-  cout << "Type 1, 2, or 3: ";
+  cout << "Type 1, 2, or 3:\n";
   cin >> choice;
 
   // using if, make a decision based on the user's choice
 
   if (1 == choice) {
-  	cout << "You chose ATTACK!" << endl;
+  	cout << "You chose ATTACK!\n" << endl;
   	if (pokemon != "mewtwo" ){
-        cout << "Nice! You won!\n\n";
+        chance = roll();
+        if (chance != 4){
+            cout << "Nice! You won!\n\n";
+        }
+        else if (chance == 4){
+            cout << "Oh no! you've missed and lost the battle!\n\n";
+        }
   	}
     if (pokemon == "mewtwo"){
         cout << "YOU LOST\n\n";
     }
   }
   else if (2 == choice) {
-  	cout << "You chose Door 2" << endl;
+  	if (pokemon == "bidoof" || pokemon == "squirtle"){
+        chance = roll();
+        if (chance == 4){
+            chance = roll();
+            if (chance ==4){
+                cout << "Oh no! They got away!\n\n";
+            }
+            else{
+            cout << "You caught a " << pokemon << "!!\n\n";
+        }
+        }
+        else{
+            cout << "You caught a " << pokemon << "!!\n\n";
+        }
+  	}
+  	if (pokemon == "Charizard"){
+        chance = roll();
+        if (chance >= 3){
+            cout << "You caught a " << pokemon << "!!\n\n";
+        }
+  	}
+
+
   }
-  else {
+
+
+
+
+
+
+
+  else if (choice < 1 || choice > 4){
   	cout << "I'm sorry, that is not a valid choice." << endl;
   }
 
