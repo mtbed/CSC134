@@ -21,6 +21,12 @@ int roll = rand() % 4 + 1;
 return roll;
 }
 
+int roll2(){
+int roll = rand() % 9;
+
+return roll;
+}
+
 int main()
 {
     void Question1();
@@ -119,7 +125,6 @@ void Question2(){
 }
 
 void Question3(){
-    cout << "Question 3\n\n";
 
     int seed = time(0);
 
@@ -419,5 +424,31 @@ cout << "I'm sorry, that is not a valid choice." << endl;
 }
 
 void Question4(){
-    cout << "Question 4\n\n";
+    int num1;
+    int num2;
+    int solution;
+    int user_answer;
+
+    cout << "Welcome to Math Practice!\n\n";
+
+    int seed = time(0);
+
+    srand(seed);
+
+    num1 = roll2();
+    num2 = roll2();
+
+    solution = num1 + num2;
+
+    cout << "What is " << num1 << " + " << num2 << "?\n";
+    cout << "ANSWER: ";
+    cin >> user_answer;
+
+    if (user_answer == solution){
+        cout << "\n\nCorrect! Nice job!";
+    }
+    else{
+        cout << "Wow you're pretty dumb, lol.";
+    }
+
 }
