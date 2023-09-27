@@ -14,9 +14,9 @@ int main()
     cout << "Enter your number grade: ";
     cin >> grade_num;
 
-    for (int i = 0; grade_num <= 100 - i * POINT_SCALE; i++){
+    for (int i = 0; grade_num + 1 - POINT_SCALE <= 100 - i * POINT_SCALE; i++){
 
-        if (i <= 1){
+        if (i == 1){
             letter_grade = "A";
         }
 
@@ -32,7 +32,7 @@ int main()
             letter_grade = "D";
         }
 
-        else if (i <= 5){
+        else if (i >= 5){
             letter_grade = "F";
         }
 
