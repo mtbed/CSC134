@@ -15,8 +15,6 @@ int main()
     cin >> grade_num;
 
     for (int i = 0; grade_num <= 100 - i * POINT_SCALE; i++){
-            cout << "FUBAOUBdbosboSD";
-
 
         if (i <= 1){
             letter_grade = "A";
@@ -34,37 +32,13 @@ int main()
             letter_grade = "D";
         }
 
-        else{
+        else if (i <= 5){
             letter_grade = "F";
         }
+
     }
 
-/*
-    if (grade_num >= 100 - POINT_SCALE){
-        letter_grade = "A";
-    }
 
-    else if (grade_num >= 100 - POINT_SCALE * 2){
-        letter_grade = "B";
-    }
-
-    else if (grade_num >= 100 - POINT_SCALE * 3){
-        letter_grade = "C";
-    }
-
-    else if (grade_num >= 100 - POINT_SCALE * 4){
-        letter_grade = "D";
-    }
-
-    else if (grade_num < 100 - POINT_SCALE * 4){
-        letter_grade = "F";
-    }
-
-    else{
-        cout << "INVALID GRADE\n\n";
-    }
-
-    */
 
 
     cout << "A grade of " << grade_num << " is " << letter_grade;
