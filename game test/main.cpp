@@ -4,6 +4,7 @@
 using namespace std;
 
 string player_model = " O";
+string path_model = " #";
 string chest_model = " m";
 string enemy_model = " X";
 string finish_model = " #";
@@ -39,7 +40,7 @@ int print_screen() {
 
 int stage1()
 {
-
+ // Make a path display shortly. have them follow the path 'in the dark'
 
 
 
