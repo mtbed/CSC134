@@ -42,13 +42,13 @@ int print_screen() {
 int stage1()
 {
     int path [] = {0,1,2,3,4,5,6,7,8,9};
-    int path_y [] = {0,1,2,3,4,5,6,7,8,9};
+
  // Make a path display shortly. have them follow the path 'in the dark'
  for (int y = 0; y < position_max; y++) {
             for (int x = 0; x < position_max; x++) {
 
 
-                if (position_x == x && position_y == y){
+                    if (position_x == x && position_y == y){
                         cout << player_model;
                     }
                     else if (path[y] == 1 && path[x] < 6){
@@ -89,12 +89,50 @@ int stage1()
 
 }
 
+bool check_walkable(string direction){
+bool walkable; //0 == false, 1 == true
+
+if (direction == "up" && position_y > position_min){
+    walkable = true;
+}
+
+else if (direction == "down" && position_y < position_max -1){
+    walkable = true;
+}
+else if (direction == "left" && position_x > position_min){
+    walkable = true;
+}
+else if (direction == "right" && position_x < position_max -1){
+    walkable = true;
+}
+
+
+else{
+    walkable = false;
+}
+
+
+return walkable;
+}
 
 
 int main()
 {
+    const int MAX_Y = 9;
+    const int MAX_X = 9;
     char ch=0;
-    cout << "Press Q to quit\n";
+    cout << "\nDARK CORN MAZE TYPE GAME\n\n\n\n";
+    cout << "PRESS [ENTER] TO START\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << "Press Q to quit";
+
+    ch = getch();
+    switch(ch)
+    {
+    case '\r':
+        system("cls");
+        stage1();
+    }
+
 
     do
     {
@@ -105,28 +143,38 @@ int main()
             case 'W':
             case 'w':
                //cout << "W was pressed \n";
-               position_y = position_y - 1;
+               // only move if new pos is not <0 or >= MAX_Y
+               if (check_walkable("up")){
+                position_y = position_y - 1;
+               }
+
                system("cls");
                stage1();
                 break;
             case 'A':
             case 'a':
                 //cout << "A was pressed \n";
+                if (check_walkable("left")){
                 position_x = position_x - 1;
+               }
                 system("cls");
                 stage1();
                 break;
             case 's':
             case 'S':
                 //cout << "S was pressed \n";
+                if (check_walkable("down")){
                 position_y = position_y + 1;
+               }
                 system("cls");
                 stage1();
                 break;
             case 'D':
             case 'd':
                 //cout << "D was pressed \n";
+                if (check_walkable("right")){
                 position_x = position_x + 1;
+               }
                 system("cls");
                 stage1();
                 break;
