@@ -92,6 +92,8 @@ int stage1()
 bool check_walkable(string direction){
 bool walkable; //0 == false, 1 == true
 
+// FAR BOUNDARIES
+
 if (direction == "up" && position_y > position_min){
     walkable = true;
 }
@@ -105,6 +107,10 @@ else if (direction == "left" && position_x > position_min){
 else if (direction == "right" && position_x < position_max -1){
     walkable = true;
 }
+
+
+// TODO
+// FORCE CHARACTER ON THE PATH
 
 
 else{
