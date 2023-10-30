@@ -44,12 +44,16 @@ int stage1()
     int path [] = {0,1,2,3,4,5,6,7,8,9};
 
  // Make a path display shortly. have them follow the path 'in the dark'
+
  for (int y = 0; y < position_max; y++) {
             for (int x = 0; x < position_max; x++) {
 
 
                     if (position_x == x && position_y == y){
                         cout << player_model;
+                    }
+                    else if (path[x] == 8 && path[y] == 6){
+                        cout << chest_model;
                     }
                     else if (path[y] == 1 && path[x] < 6){
                         cout << path_model;
@@ -75,6 +79,7 @@ int stage1()
                         cout << path_model;
                     }
 
+
                     else{
                         cout << blank_model;
                     }
@@ -85,12 +90,15 @@ int stage1()
         }
 
 
+        cout << "POSITION.X: " << position_x << "\nPOSITION.Y: " << position_y << endl;
 
 
 }
 
 bool check_walkable(string direction){
 bool walkable; //0 == false, 1 == true
+int prev_position_x = position_x;
+int prev_position_y = position_y;
 
 // FAR BOUNDARIES
 
@@ -106,16 +114,91 @@ else if (direction == "left" && position_x > position_min){
 }
 else if (direction == "right" && position_x < position_max -1){
     walkable = true;
+
 }
+
+
+if (walkable == true){
+
+ // Make a path display shortly. have them follow the path 'in the dark'
+ for (int y = 0; y < position_max; y++) {
+            for (int x = 0; x < position_max; x++) {
+
+
+                    if (position_y == 1 && position_x < 6){
+                        walkable = true;
+                    }
+                    else if(position_y == 2 && position_x > 4){
+                        walkable = true;
+                    }
+
+                    else if (position_y == 6 && position_x > 1 && position_x){
+                        walkable = true;
+                    }
+
+                    else if (position_x == 5 && position_y < 8 && position_y > 1){
+                        walkable = true;
+                    }
+                    else if (position_y == 4 && position_x > 3 && position_x < 7){
+                       walkable = true;
+                    }
+                    else if (position_y == 8 && position_x > 0 && position_x < 8){
+                        walkable = true;
+                    }
+                    else if (position_x == 8 && position_y < 9 && position_y > 5){
+                        walkable = true;
+                    }
+
+
+                    else{
+                        walkable = false;
+                    }
+
+                    if (position_x == 7 && position_y == 6){
+                        walkable = false;
+                    }
+            }
+
+        }
+
+
+
+
+}
+
+
+if (walkable == false){
+        if (direction == "up")
+            position_y = position_y + 1;
+
+
+
+        if (direction == "down"){
+            position_y = position_y - 1;
+
+        }
+        else if (direction == "left"){
+            position_x = position_x + 1;
+
+        }
+        else if (direction == "right"){
+            position_x = position_x - 1;
+        }
+
+
+}
+
+
+
+
+
 
 
 // TODO
 // FORCE CHARACTER ON THE PATH
 
 
-else{
-    walkable = false;
-}
+
 
 
 return walkable;
@@ -124,8 +207,6 @@ return walkable;
 
 int main()
 {
-    const int MAX_Y = 9;
-    const int MAX_X = 9;
     char ch=0;
     cout << "\nDARK CORN MAZE TYPE GAME\n\n\n\n";
     cout << "PRESS [ENTER] TO START\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -152,37 +233,68 @@ int main()
                // only move if new pos is not <0 or >= MAX_Y
                if (check_walkable("up")){
                 position_y = position_y - 1;
+                system("cls");
+                stage1();
                }
 
-               system("cls");
-               stage1();
+
+
+
+               if (check_walkable("up") == false){
+                system("cls");
+                stage1();
+                cout << "YOU HIT A WALL!" << endl;
+               }
                 break;
             case 'A':
             case 'a':
                 //cout << "A was pressed \n";
                 if (check_walkable("left")){
                 position_x = position_x - 1;
-               }
                 system("cls");
                 stage1();
+               }
+
+
+
+               if (check_walkable("left") == false){
+                system("cls");
+                stage1();
+                cout << "YOU HIT A WALL!" << endl;
+               }
                 break;
             case 's':
             case 'S':
                 //cout << "S was pressed \n";
                 if (check_walkable("down")){
                 position_y = position_y + 1;
-               }
                 system("cls");
                 stage1();
+               }
+
+
+               if (check_walkable("down") == false){
+                system("cls");
+                stage1();
+                cout << "YOU HIT A WALL!" << endl;
+               }
+
                 break;
             case 'D':
             case 'd':
                 //cout << "D was pressed \n";
                 if (check_walkable("right")){
                 position_x = position_x + 1;
-               }
                 system("cls");
                 stage1();
+               }
+
+
+                if (check_walkable("right") == false){
+                system("cls");
+                stage1();
+                cout << "YOU HIT A WALL!" << endl;
+               }
                 break;
             case 'l':
             case 'L':
