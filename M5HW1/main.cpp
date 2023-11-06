@@ -214,7 +214,7 @@ string numeral;
 
 
 
-    cout << "The Roman numeral version of " << num1 << " is " << numeral;
+    cout << "The Roman numeral version of " << num1 << " is " << numeral << ".";
 
 }
 

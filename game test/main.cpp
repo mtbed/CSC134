@@ -90,6 +90,7 @@ int stage1()
         }
 
         cout << "COINS: " << coin_amt;
+        cout << "\n";
         cout << "POSITION.X: " << position_x << "\nPOSITION.Y: " << position_y << endl;
 
 
