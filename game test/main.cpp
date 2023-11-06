@@ -15,8 +15,8 @@ int position_y = 5;
 int position_max = 10;
 int position_min = 0;
 
+int coin_amt = 0;
 
-int coins = 0;
 
 int print_screen() {
 
@@ -89,7 +89,7 @@ int stage1()
             cout << endl;
         }
 
-
+        cout << "COINS: " << coin_amt;
         cout << "POSITION.X: " << position_x << "\nPOSITION.Y: " << position_y << endl;
 
 
