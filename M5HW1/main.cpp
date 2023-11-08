@@ -371,5 +371,7 @@ while (keep_going == true){
         }
     keep_going = repeat();
 }
+
+cout << "\nThanks for using my program\n\n";
     return 0;
 }
