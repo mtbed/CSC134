@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 //M5HW1
 //Matthew Bedsole
 //11/6/23
@@ -220,16 +221,136 @@ string numeral;
 
 int geometry()
 {
-    cout << "GEOMETRY CALCULATOR";
+    int selection;
+    bool keep_going = true;
+    double area;
+
+
+    while (keep_going){
+        cout << "GEOMETRY CALCULATOR\n\n\n";
+
+        cout << "1. Calculate the Area of a Circle\n";
+        cout << "2. Calculate the Area of a Rectangle\n";
+        cout << "3. Calculate the Area of a Triangle\n";
+        cout << "4. Quit\n";
+        cout << "Enter your choice (1-4): ";
+        cin >> selection;
+
+        if (selection >= 1 && selection <= 4){
+            keep_going = false;
+        }
+        else{
+            keep_going = true;
+        }
+
+    }
+
+
+    if (selection == 1){
+        double radius;
+        double pi =  atan(1)*4;
+        cout << "\nEnter radius: ";
+        cin >> radius;
+
+        area = pi * pow(radius, 2);
+        cout << "\nArea: " << area;
+
+    }
+
+    else if (selection == 2){
+        double length, width;
+        cout << "\nEnter length: ";
+        cin >> length;
+
+        cout << "\nEnter width: ";
+        cin >> width;
+
+        area = length * width;
+        cout << "\nArea: " << area;
+    }
+
+    else if (selection == 3){
+        double length, width;
+        cout << "\nEnter length: ";
+        cin >> length;
+
+        cout << "\n\nEnter width: ";
+        cin >> width;
+
+        area = (length * width)/2;
+        cout << "\nArea: " << area;
+    }
+
+    else if (selection == 4){
+
+    }
+
+
 }
 
 int distance_calc()
 {
+    double speed;
+    double time;
+    double distance;
+
     cout << "DISTANCE TRAVELED";
+
+
+    cout << "\n\n\nWhat is the speed of the vehicle in mph? ";
+    cin >> speed;
+
+    cout << "\nHow many hours has it traveled? ";
+    cin >> time;
+
+    distance = speed * time;
+
+
+
+    cout << "\nMPH\t\tHOURS\t\tMILES TRAVELED\n";
+    cout << "---------------------------------------------------\n";
+
+    cout << speed << "\t\t" << time << "\t\t" << distance;
+
 }
+
+bool repeat()
+{
+    char selection;
+    bool keep_going = true;
+
+    while (keep_going)
+        {
+            cout << "\n\nContinue to main menu? (Y/N):";
+            cin >> selection;
+
+
+            if (selection == 'y' || selection == 'Y'){
+                keep_going = false;
+                return true;
+            }
+            else if (selection == 'n' || selection == 'N'){
+                keep_going = false;
+                return false;
+            }
+            else {
+                cout << "\nPlease enter a valid selection.";
+            }
+
+        }
+}
+
+
+
 
 int main()
 {
+bool keep_going = true;
+
+while (keep_going == true){
+
+    system("cls");
+
     int selection = menu();
 
     system("cls");
@@ -248,6 +369,7 @@ int main()
         else if (selection == 5){
             distance_calc();
         }
-
+    keep_going = repeat();
+}
     return 0;
 }
